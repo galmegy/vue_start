@@ -1,7 +1,7 @@
 <template>
 
-  <Modal :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" />
-  <Card :원룸="원룸들[i]" v-for="(a,i) in 원룸들" :key="i" />
+  <Modal @closeModal="모달창열렸니=false" :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" />
+  <Card @openModal="모달창열렸니=true; 누른거=$event" :원룸="원룸들[i]" v-for="(a,i) in 원룸들" :key="i" />
 
 </template>
 
@@ -16,7 +16,7 @@ export default {
     return {
       누른거: 0,
       원룸들: data,
-      모달창열렸니 : true,
+      모달창열렸니 : false,
     }
   },  
   components: {  
